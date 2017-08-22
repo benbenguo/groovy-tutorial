@@ -26,4 +26,7 @@ dependencies {
     compile group: 'org.codehaus.groovy.modules.http-builder', name: 'http-builder', version: '0.7.1'
     // https://mvnrepository.com/artifact/org.apache.httpcomponents/httpmime
     compile group: 'org.apache.httpcomponents', name: 'httpmime', version: '4.5.3'
+    compile "mysql:mysql-connector-java:5.1.38"
+    // https://mvnrepository.com/artifact/org.docx4j/docx4j
+    compile group: 'org.docx4j', name: 'docx4j', version: '3.3.5'
 }
