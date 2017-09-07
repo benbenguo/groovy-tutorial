@@ -2,6 +2,7 @@ package json
 
 import groovy.json.JsonBuilder
 import groovy.json.JsonOutput
+import groovy.json.JsonSlurper
 import po.Person
 
 /**
@@ -11,16 +12,17 @@ import po.Person
  */
 class JsonBuilderTutorial {
     static main(args) {
-        def result = {
-            def str = null
-            isNullOrEmpty(str = getString()) ? null : str
-        }
-
-        println result
+//        def result = {
+//            def str = null
+//            isNullOrEmpty(str = getString()) ? null : str
+//        }
+//
+//        println result
 
 //        makeJsonStringOnlyOneRootNode()
+//        makeJsonFromMap()
 //        makeJsonStringMuliRootNode()
-//        makeJsonStringIncludeArray()
+        makeJsonStringIncludeArray()
         println "JsonBuilderTutorial Completed"
     }
 
@@ -37,7 +39,7 @@ class JsonBuilderTutorial {
     }
 
     static makeJsonStringOnlyOneRootNode() {
-        JsonBuilder builder = new JsonBuilder()
+        def builder = new JsonBuilder()
 
         builder.records {
             car {
@@ -56,6 +58,18 @@ class JsonBuilderTutorial {
         println result
     }
 
+    static makeJsonFromMap() {
+        def map = [
+                car: [
+                    name:'HSV Maloo'
+                ]
+        ]
+        map.car.year = 2006
+
+        def builder = new JsonBuilder(map)
+        println(builder.toPrettyString())
+    }
+
     static makeJsonStringMuliRootNode() {
         JsonBuilder builder = new JsonBuilder()
         builder {
@@ -71,6 +85,8 @@ class JsonBuilderTutorial {
 
     static makeJsonStringIncludeArray() {
         JsonBuilder builder = new JsonBuilder()
+        def list = []
+        def map = [:]
 
         def array = [
                 new Person(name: "Dean", age: 10),
@@ -78,9 +94,9 @@ class JsonBuilderTutorial {
                 new Person(name: "Gouzi", age: 12)
         ]
 
-        builder {
-            people array
-        }
+//        builder {
+//            people array
+//        }
 
 //        builder {
 //            people array.collect { p ->

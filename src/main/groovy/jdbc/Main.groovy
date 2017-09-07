@@ -5,7 +5,13 @@ import word.WordTutorial
 
 class Main {
     static main(args) {
-        def db = [url:'jdbc:mysql://192.168.230.14:3306/newmedia?autoreconnect=true&useSSL=false&useUnicode=true&characterEncoding=UTF-8', user:'dev-user', password:'dev-user', driver:'com.mysql.jdbc.Driver']
+        def db = [
+            url: 'jdbc:mysql://192.168.230.14:3306/newmedia?autoreconnect=true&useSSL=false&useUnicode=true&characterEncoding=UTF-8',
+            user:'dev-user',
+            password:'dev-user',
+            driver:'com.mysql.jdbc.Driver'
+        ]
+
         def sql = Sql.newInstance(db.url, db.user, db.password, db.driver)
 
         def list = sql.rows("""SELECT

@@ -13,8 +13,8 @@ import java.beans.PropertyChangeListener
  */
 class ObservableCollection {
     static main(args) {
-//        addedEvent()
-        clearedEvent()
+        addedEvent()
+//        clearedEvent()
     }
 
     /**

@@ -7,6 +7,7 @@ import groovy.xml.MarkupBuilder
  */
 class XmlTutorial {
     static main(args) {
+//        markupBuilder()
         streamBuilder()
     }
 
@@ -21,15 +22,19 @@ class XmlTutorial {
         def dean = "dean"
 
         xmlMarkup."xml" {
-//            createSubTag.delegate = delegate
-//            createSubTag()
-            "ToUserName"("<![CDATA[${dean}]]")
-            "FromUserName"("<![CDATA[alice]]")
+            createSubTag.delegate = delegate
+            createSubTag()
+            "ToUserName"("${dean}")
+            "FromUserName"("alice")
+            "FromUserName"("jack")
         }
 
-//        def movie = new XmlSlurper()
-//                .parseText(xmlWriter.toString())
-//
+        def movie = new XmlSlurper()
+                .parseText(xmlWriter.toString())
+
+        movie."FromUserName".each {
+            println(it.text())
+        }
 //        def file = new File("D:/file.xml")
 //        file.write(xmlWriter.toString())
 

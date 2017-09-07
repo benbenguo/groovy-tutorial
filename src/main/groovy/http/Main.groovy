@@ -16,7 +16,8 @@ import org.apache.http.impl.client.HttpClientBuilder
 class Main {
     static void main(args) {
 //        testPost()
-        testMultipartPost()
+        testGet()
+//        testMultipartPost()
     }
 
     static void testAvro() {
@@ -78,8 +79,15 @@ class Main {
     static void testPost() {
         def url = 'http://localhost:66/service'
         def http = new HTTPBuilder( url)
-        http.post(body: [name: 'bob']) { resp ->
+        http.post(body: [name: 'bob']) { resp, data ->
             println "POST Success: ${resp.statusLine}"
+        }
+    }
+
+    static void testGet() {
+        def url = 'http://opennews.com.cn/opennews/downloadInterface/getDownloadNewsList'
+        new HTTPBuilder(url).get([params: [lastId: 0, category: "SPORTS"]]) { response, data ->
+            println "completed"
         }
     }
 }
