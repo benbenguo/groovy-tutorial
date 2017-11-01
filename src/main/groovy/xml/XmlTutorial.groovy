@@ -7,8 +7,16 @@ import groovy.xml.MarkupBuilder
  */
 class XmlTutorial {
     static main(args) {
+        String str = '海口&mdash;今日科创'
+        String result = filterBroadCastTitle(str, new Date())
+        println("============== ${result}")
 //        markupBuilder()
-        streamBuilder()
+//        streamBuilder()
+    }
+
+    private static String filterBroadCastTitle(String title, Date date) {
+        def filterTitle = title.replaceAll('&mdash;', ' ')
+        return filterTitle + " " + date.format('MM/dd')
     }
 
     static def markupBuilder() {
