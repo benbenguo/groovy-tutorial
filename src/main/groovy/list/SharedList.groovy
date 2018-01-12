@@ -2,7 +2,8 @@ package list
 
 class SharedList {
     static main(args) {
-        listIndex()
+//        listIndex()
+        groupedList()
     }
 
     static listIndex() {
@@ -10,8 +11,6 @@ class SharedList {
         println(list[-2..-1])
         def olist = [3, 4, 5]
         println(list - olist)
-
-
     }
 
     static def groupedList() {
@@ -76,8 +75,10 @@ class SharedList {
             it.typeName
         }.collect {[
                 typeName: it.key,
-                fileList: it.value
+                items: it.value
         ]}
+
+        def typeNames = list.typeName
 
         return result
     }

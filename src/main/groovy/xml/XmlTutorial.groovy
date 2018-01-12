@@ -10,7 +10,7 @@ class XmlTutorial {
         String str = '海口&mdash;今日科创'
         String result = filterBroadCastTitle(str, new Date())
         println("============== ${result}")
-//        markupBuilder()
+        markupBuilder()
 //        streamBuilder()
     }
 
@@ -35,14 +35,17 @@ class XmlTutorial {
             "ToUserName"("${dean}")
             "FromUserName"("alice")
             "FromUserName"("jack")
+            "youname" {
+                "name"("dean")
+            }
         }
 
-        def movie = new XmlSlurper()
-                .parseText(xmlWriter.toString())
+//        def movie = new XmlSlurper()
+//                .parseText(xmlWriter.toString())
 
-        movie."FromUserName".each {
-            println(it.text())
-        }
+//        movie."FromUserName".each {
+//            println(it.text())
+//        }
 //        def file = new File("D:/file.xml")
 //        file.write(xmlWriter.toString())
 

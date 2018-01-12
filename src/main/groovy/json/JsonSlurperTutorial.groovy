@@ -13,8 +13,16 @@ class JsonSlurperTutorial {
 
     static main(args) {
 //        jsonSlurper()
-        jsonOutput()
+//        jsonOutput()
+        loadJsonFile()
         println "JsonSlurperTutorial Completed"
+    }
+
+    static loadJsonFile() {
+        def file = new File("F:\\Temp\\static\\word-ocean\\data.json")
+        def jsonSlurper = new JsonSlurper()
+        def obj = jsonSlurper.parse(file)
+        println(obj.toString())
     }
 
     /**
