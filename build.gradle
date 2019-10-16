@@ -4,19 +4,28 @@ version '1.0-SNAPSHOT'
 apply plugin: 'groovy'
 apply plugin: 'java'
 
-sourceCompatibility = 1.5
+sourceCompatibility = 1.8
 
 repositories {
+    maven {
+        url 'http://maven.opennews.com.cn/content/groups/public/'
+    }
+
     mavenCentral()
+
     maven {
         url "http://central.maven.org/maven2/"
     }
 }
 
 dependencies {
-    compile 'org.codehaus.groovy:groovy-all:2.3.11'
+    compile 'org.codehaus.groovy:groovy-all:2.5.8'
+    compile 'org.codehaus.groovy:groovy-dateutil:2.5.8'
+    compile 'com.pivotal:greenplum:5.1.4'
     // https://mvnrepository.com/artifact/com.thoughtworks.xstream/xstream
     compile 'com.jameskleeh:excel-builder:0.3.0'
+    compile 'commons-lang:commons-lang:2.6'
+
     testCompile group: 'junit', name: 'junit', version: '4.11'
     // https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient
     compile group: 'org.apache.httpcomponents', name: 'httpclient', version: '4.5.1'
@@ -29,4 +38,10 @@ dependencies {
     compile "mysql:mysql-connector-java:5.1.38"
     // https://mvnrepository.com/artifact/org.docx4j/docx4j
     compile group: 'org.docx4j', name: 'docx4j', version: '3.3.5'
+    // https://mvnrepository.com/artifact/org.apache.avro/avro
+    compile group: 'org.apache.avro', name: 'avro', version: '1.9.0'
+
+    // https://mvnrepository.com/artifact/com.sksamuel.avro4s/avro4s-core
+//    compile group: 'com.sksamuel.avro4s', name: 'avro4s-core_2.13', version: '3.0.0'
+
 }

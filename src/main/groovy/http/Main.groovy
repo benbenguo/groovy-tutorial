@@ -15,9 +15,27 @@ import org.apache.http.impl.client.HttpClientBuilder
  */
 class Main {
     static void main(args) {
-//        testPost()
-        testGet()
-//        testMultipartPost()
+        request()
+    }
+
+    static request() {
+        def url = 'http://127.0.0.1:8200/user/user/userInfo?username=root'
+
+        def get = new HttpGet(url)
+        get.setHeader('cbd-format', 'json')
+        def client = HttpClientBuilder.create().build()
+        def response = client.execute(get)
+        def result = resultJson(response)
+        println(result)
+    }
+
+    static def resultJson(response) {
+        def bufferedReader = new BufferedReader(new InputStreamReader(response.getEntity().getContent()))
+        def jsonResponse = bufferedReader.getText()
+        println "response: \n" + jsonResponse
+
+        def slurper = new JsonSlurper()
+        return slurper.parseText(jsonResponse)
     }
 
     static void testAvro() {

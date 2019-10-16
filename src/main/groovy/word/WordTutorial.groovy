@@ -1,18 +1,10 @@
 package word
 
-import org.apache.commons.lang.StringUtils
+
 import org.docx4j.jaxb.Context
 import org.docx4j.openpackaging.packages.WordprocessingMLPackage
 import org.docx4j.openpackaging.parts.WordprocessingML.MainDocumentPart
-import org.docx4j.wml.CTLanguage
-import org.docx4j.wml.HpsMeasure
-import org.docx4j.wml.ObjectFactory
-import org.docx4j.wml.P
-import org.docx4j.wml.PPr
-import org.docx4j.wml.PPrBase
-import org.docx4j.wml.ParaRPr
-import org.docx4j.wml.R
-import org.docx4j.wml.RPr
+import org.docx4j.wml.*
 
 class WordTutorial {
     static main(args) {
