@@ -15,7 +15,7 @@ import org.apache.http.impl.client.HttpClientBuilder
  */
 class Main {
     static void main(args) {
-        request()
+        testPost()
     }
 
     static request() {
@@ -95,9 +95,13 @@ class Main {
     }
 
     static void testPost() {
-        def url = 'http://localhost:66/service'
-        def http = new HTTPBuilder( url)
-        http.post(body: [name: 'bob']) { resp, data ->
+        def url = 'http://service.315i.com:3880/user/info'
+        def http = new HTTPBuilder(url)
+
+        http.post(body: [
+            userId: '28899acd62a44957b51fe58a6c232e61',
+            prodId: 'V003CFF9CFA866A1E0438760007FE88C']) { resp, data ->
+
             println "POST Success: ${resp.statusLine}"
         }
     }
